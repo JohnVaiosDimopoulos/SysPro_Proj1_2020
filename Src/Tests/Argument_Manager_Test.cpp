@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "../../Argument_Manager/Argument_Manager.cpp"
-#include "../../Argument_Data/Argument_Data.cpp"
+#include "../Argument_Manager/Argument_Manager.cpp"
+#include "../Argument_Data/Argument_Data.cpp"
 
 
 class Arguments_Correct{
