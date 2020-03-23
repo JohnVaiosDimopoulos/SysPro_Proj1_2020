@@ -5,13 +5,13 @@
 class Patient_Record {
 
  private:
-  const int record_id;
-  const std::string first_name;
-  const std::string last_name;
-  const std::string disease_id;
-  const std::string country;
-  const Date entry_date;
-  const Date exit_date;
+  int record_id;
+  std::string first_name;
+  std::string last_name;
+  std::string disease_id;
+  std::string country;
+  Date entry_date;
+  Date exit_date;
 
  public:
   //==CONSTRUCTOR==//
@@ -26,6 +26,7 @@ class Patient_Record {
   //==OPERATORS==//
   bool operator==(const Patient_Record &rhs) const;
   bool operator!=(const Patient_Record &rhs) const;
+  Patient_Record& operator=(const Patient_Record &rhs);
 
 
   //==GETTERS==//

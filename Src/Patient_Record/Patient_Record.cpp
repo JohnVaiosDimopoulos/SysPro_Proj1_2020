@@ -61,6 +61,15 @@ bool Patient_Record::operator!=(const Patient_Record &rhs) const {
   return !(rhs == *this);
 }
 
+Patient_Record&Patient_Record::operator=(const Patient_Record &rhs) {
+  this->record_id = rhs.record_id;
+  this->first_name = rhs.first_name;
+  this->last_name = rhs.last_name;
+  this->country = rhs.country;
+  this->entry_date = rhs.entry_date;
+  this->exit_date = rhs.exit_date;
+  return *this;
+}
 
 
 

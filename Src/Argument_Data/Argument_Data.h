@@ -10,6 +10,8 @@ class Argument_Data{
   int country_entries;
   int bucket_size;
  public:
+  //constructor//
+  Argument_Data(const std::string &fileName, int diseaseEntries, int countryEntries, int bucketSize);
   //getters-setters//
   std:: string get_file_name() const;
   void set_file_name(const std::string &fileName);

@@ -83,7 +83,6 @@ TEST_F(Argument_Manager_Test,Correct_Input){
   ASSERT_EQ(data.get_bucket_size(),40);
 }
 
-
 TEST_F(Argument_Manager_Test,Wrong_Num){
   Argument_Manager manager;
   EXPECT_EXIT(manager.manage_arguments(arg_wrong_num->argc,(char**)arg_wrong_num->argv),::testing::ExitedWithCode(255),"");

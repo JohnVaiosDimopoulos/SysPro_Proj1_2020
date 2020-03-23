@@ -4,7 +4,8 @@
 
 Date::Date(int year, int month, int day) : year(year), month(month), day(day) {}
 
-int Date::convert_to_timestamp(Date date) {
+
+int Date::convert_to_timestamp(Date date) const {
   time_t rawtime;
   struct  tm* timeinfo;
 
@@ -20,21 +21,10 @@ int Date::convert_to_timestamp(Date date) {
   return  timegm(timeinfo);
 }
 
-int Date::compare_with_other_date(Date other_date) {
-  int curr = convert_to_timestamp(*this);
-  int other = convert_to_timestamp(other_date);
-  std::cout<<*this<<":"<<curr<<" "<<other_date<<":"<<other<<std::endl;
 
-  if(curr == other)
-    return 0;
-  else if (curr< other)
-    return -1;
-  else
-    return 1;
-}
 
 std::ostream &operator<<(std::ostream &os, const Date &date) {
-  os << "year: " << date.year << " month: " << date.month << " day: " << date.day;
+  os << date.year <<"/"<< date.month <<"/"<< date.day;
   return os;
 }
 
@@ -46,3 +36,14 @@ bool Date::operator==(const Date &rhs) const {
 bool Date::operator!=(const Date &rhs) const {
   return !(rhs == *this);
 }
+
+bool Date::operator<(const Date &rhs) const {
+  int curr = convert_to_timestamp(*this);
+  int other = convert_to_timestamp(rhs);
+  return curr < other;
+}
+
+bool Date::operator>(const Date &rhs) const {
+  return rhs < *this;
+}
+
