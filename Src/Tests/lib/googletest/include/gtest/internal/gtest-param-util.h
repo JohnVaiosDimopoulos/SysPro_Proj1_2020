@@ -594,7 +594,7 @@ class ParameterizedTestSuiteInfo : public ParameterizedTestSuiteInfoBase {
     const std::unique_ptr<TestMetaFactoryBase<ParamType> > test_meta_factory;
   };
   using TestInfoContainer = ::std::vector<std::shared_ptr<TestInfo> >;
-  // Records data received from INSTANTIATE_TEST_SUITE_P macros:
+  // Records arg_data received from INSTANTIATE_TEST_SUITE_P macros:
   //  <Instantiation name, Sequence generator creation function,
   //     Name generator function, Source file, Source line>
   struct InstantiationInfo {

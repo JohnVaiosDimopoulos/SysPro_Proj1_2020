@@ -17,7 +17,7 @@ class Arguments_Correct{
     argv[5] = "-h2";
     argv[6] = "300";
     argv[7] = "-b";
-    argv[8] = "40";
+    argv[8] = "400";
 
   }
 };

@@ -190,7 +190,7 @@ single header file and will not bloat your binary.
 
 ## The compiler complains about "undefined references" to some static const member variables, but I did define them in the class body. What's wrong?
 
-If your class has a static data member:
+If your class has a static arg_data member:
 
 ```c++
 // foo.h
@@ -326,7 +326,7 @@ You may still want to use `SetUp()/TearDown()` in the following cases:
     dispatch, it will use the definition from the class the constructor of which
     is currently executing. This is because calling a virtual method before the
     derived class constructor has a chance to run is very dangerous - the
-    virtual method might operate on uninitialized data. Therefore, if you need
+    virtual method might operate on uninitialized arg_data. Therefore, if you need
     to call a method that will be overridden in a derived class, you have to use
     `SetUp()/TearDown()`.
 *   In the body of a constructor (or destructor), it's not possible to use the
@@ -589,7 +589,7 @@ However, there are cases where you have to define your own:
 *   If you explicitly declare a non-default constructor for class `FooTest`
     (`DISALLOW_EVIL_CONSTRUCTORS()` does this), then you need to define a
     default constructor, even if it would be empty.
-*   If `FooTest` has a const non-static data member, then you have to define the
+*   If `FooTest` has a const non-static arg_data member, then you have to define the
     default constructor *and* initialize the const member in the initializer
     list of the constructor. (Early versions of `gcc` doesn't force you to
     initialize the const member. It's a bug that has been fixed in `gcc 4`.)

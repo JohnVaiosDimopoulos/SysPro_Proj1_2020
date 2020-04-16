@@ -8,6 +8,7 @@ class Patients_List: public Generic_List<Patient_Record> {
  public:
   //==API==//
   bool is_id_in_list(const int& id) const;
+  list_node<Patient_Record>* get_patient(const int& id);
 
 };
 

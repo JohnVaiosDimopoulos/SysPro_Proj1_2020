@@ -36,15 +36,16 @@ Patient_Record::Patient_Record(const int recordId,
                                const std::string &lastName,
                                const std::string &diseaseId,
                                const std::string &country,
-                               Date *entryDate,
-                               Date *exitDate)
+                               Date entryDate,
+                               Date exitDate)
     : record_id(recordId),
       first_name(firstName),
       last_name(lastName),
       disease_id(diseaseId),
       country(country),
-      entry_date(*entryDate),
-      exit_date(*exitDate) {}
+      entry_date(entryDate),
+      exit_date(exitDate) {}
+
 
 //==OPERATORS==//
 
@@ -69,6 +70,23 @@ Patient_Record&Patient_Record::operator=(const Patient_Record &rhs) {
   this->entry_date = rhs.entry_date;
   this->exit_date = rhs.exit_date;
   return *this;
+}
+
+std::ostream &operator<<(std::ostream &os, const Patient_Record &record) {
+  os << "record_id: " << record.record_id << " first_name: " << record.first_name << " last_name: " << record.last_name
+     << " disease_id: " << record.disease_id << " country: " << record.country << " entry_date: " << record.entry_date
+     << " exit_date: " << record.exit_date;
+  return os;
+}
+
+//==SETTER==//
+void Patient_Record::setExitDate(const Date &exitDate) {
+  exit_date = exitDate;
+}
+
+bool Patient_Record::has_exit_date() const {
+  Date date(0,0,0);
+  return !(exit_date == date);
 }
 
 

@@ -1,4 +1,6 @@
-#include <cstring>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include "Argument_Manager.h"
 
 

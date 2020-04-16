@@ -7,11 +7,12 @@
  class List_Test:public testing::Test{
 
   protected:
-   Patient_Record Patient_1{222,"John","Dim","COVID","Greece",new Date(2020,3,15),new Date(2020,4,12)};
-  Patient_Record Patient_2{223,"John2","Dim2","COVID","Greece",new Date(2020,3,15),new Date(2020,4,12)};
-  Patient_Record Patient_3{223,"John2","Dim2","COVID","Greece",new Date(2020,3,15),new Date(2020,4,12)};
+   Patient_Record Patient_1{222,"John","Dim","COVID","Greece",{2020,3,15},{2020,4,12}};
+  Patient_Record Patient_2{223,"John2","Dim2","COVID","Greece",{2020,3,15},{2020,4,12}};
+  Patient_Record Patient_3{223,"John2","Dim2","COVID","Greece",{2020,3,15},{2020,4,12}};
   Generic_List<Patient_Record> patient_list{};
   Patients_List patient_list2{};
+  Generic_List<std::string> string_list{};
 };
 
 TEST_F(List_Test, Insert_Patiens_Generic){
@@ -45,4 +46,9 @@ TEST_F(List_Test,Insert_Patients_Inerit){
   ASSERT_EQ(true,patient_list2.is_id_in_list(Patient_1.get_record_id()));
   ASSERT_EQ(true,patient_list2.is_id_in_list(Patient_2.get_record_id()));
   ASSERT_EQ(true,patient_list2.is_id_in_list(Patient_3.get_record_id()));
+}
+
+TEST_F(List_Test,string_list){
+  this->string_list.insert_node("test");
+  ASSERT_STREQ("test",string_list[0].c_str());
 }

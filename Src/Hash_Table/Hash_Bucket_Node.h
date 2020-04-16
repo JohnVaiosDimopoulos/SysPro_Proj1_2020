@@ -26,6 +26,10 @@ class Hash_Bucket_Node {
   bool is_in_table(std::string &name);
   void insert_date(list_node<Patient_Record> *node, std::string &name);
 
+  //==GETTERS==//
+  Node_element *get_elements() const;
+  int get_num_of_elements() const;
+  int getMaxElements() const;
 
 };
 

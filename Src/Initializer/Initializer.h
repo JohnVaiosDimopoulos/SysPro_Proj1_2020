@@ -3,15 +3,15 @@
 
 #include "../System_Data/System_Data.h"
 #include "../Argument_Data/Argument_Data.h"
+#include "../Tokenizer/Tokenizer.h"
 
 class Initializer {
  private:
+  Tokenizer tokenizer;
   //==INNER-FUNCTIONALITY==//
-  static bool open_file_for_read(const std::string &filename, std::fstream *file);
-  static std::string* tokenize_record(std::string &record);
-  static Date * str_to_Date(const std::string &date);
-  static bool has_exit_date(const std::string&);
-  static Patient_Record generate_record(const std::string *tokenized_string, const System_Data &system_data);
+  bool open_file_for_read(const std::string &filename, std::fstream *file);
+  bool has_exit_date(const std::string&);
+  void record_validity_check(std::string* tokenized_string);
 
  public:
   //==API==//

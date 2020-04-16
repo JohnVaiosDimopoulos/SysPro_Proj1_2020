@@ -20,14 +20,14 @@ class Patient_Record {
                  const std::string &lastName,
                  const std::string &diseaseId,
                  const std::string &country,
-                 Date *entryDate,
-                 Date *exitDate);
+                 Date entryDate,
+                 Date exitDate);
 
   //==OPERATORS==//
   bool operator==(const Patient_Record &rhs) const;
   bool operator!=(const Patient_Record &rhs) const;
   Patient_Record& operator=(const Patient_Record &rhs);
-
+  friend std::ostream &operator<<(std::ostream &os, const Patient_Record &record);
 
   //==GETTERS==//
   int get_record_id() const;
@@ -37,6 +37,9 @@ class Patient_Record {
   const std::string &get_country() const;
   const Date &get_entry_date() const;
   const Date &get_exit_date() const;
+  bool has_exit_date() const;
+  //==SETTER==//
+  void setExitDate(const Date &exitDate);
 };
 
 #endif //PROJ_1_PATIENT_RECORD_H

@@ -2,6 +2,7 @@
 #define PROJ_1_GENERIC_LIST_H
 
 #include <iostream>
+#include "../Patient_Record/Patient_Record.h"
 
 template<class T>
 class list_node {
@@ -9,7 +10,9 @@ class list_node {
   list_node<T>* next;
   T data;
  public:
-  list_node(T data) : next(nullptr), data(data) {}
+  list_node(T data) : next(nullptr), data(data) {
+
+  }
 
   virtual ~list_node() {
     if(next!=nullptr)
@@ -33,6 +36,9 @@ class list_node {
     return data;
   }
 
+  T* get_data_ptr(){
+      return &data;
+  };
 };
 
 
@@ -51,7 +57,7 @@ class Generic_List
   }
 
   virtual ~Generic_List() {
-    if(first!= nullptr)
+    if(first!= NULL)
       delete first;
   }
 
@@ -106,6 +112,20 @@ class Generic_List
         curr = curr->get_next();
       }
       return curr->get_data();
+    }
+  }
+
+  T* get_by_ref(int index) {
+    if(index == 0) {
+      // Get the first element
+      return this->first->get_data_ptr();
+    } else {
+      // Get the index'th element
+      list_node<T>* curr = this->first;
+      for(int i = 0; i < index; ++i) {
+        curr = curr->get_next();
+      }
+      return curr->get_data_ptr();
     }
   }
 

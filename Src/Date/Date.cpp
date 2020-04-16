@@ -46,4 +46,10 @@ bool Date::operator<(const Date &rhs) const {
 bool Date::operator>(const Date &rhs) const {
   return rhs < *this;
 }
+bool Date::operator<=(const Date &rhs) const {
+  return !(rhs < *this);
+}
+bool Date::operator>=(const Date &rhs) const {
+  return !(*this < rhs);
+}
 

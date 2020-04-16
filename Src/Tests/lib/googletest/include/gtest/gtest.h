@@ -1636,7 +1636,7 @@ GTEST_IMPL_CMP_HELPER_(GT, >);
 GTEST_API_ AssertionResult CmpHelperSTREQ(const char* s1_expression,
                                           const char* s2_expression,
                                           const char* s1,
-                                          const char* s2);
+                                          const char *s2);
 
 // The helper function for {ASSERT|EXPECT}_STRCASEEQ.
 //
@@ -1668,7 +1668,7 @@ GTEST_API_ AssertionResult CmpHelperSTRCASENE(const char* s1_expression,
 // INTERNAL IMPLEMENTATION - DO NOT USE IN A USER PROGRAM.
 GTEST_API_ AssertionResult CmpHelperSTREQ(const char* s1_expression,
                                           const char* s2_expression,
-                                          const wchar_t* s1,
+                                          const char *s1,
                                           const wchar_t* s2);
 
 // Helper function for *_STRNE on wide strings.
@@ -1778,7 +1778,7 @@ class GTEST_API_ AssertHelper {
   void operator=(const Message& message) const;
 
  private:
-  // We put our data in a struct so that the size of the AssertHelper class can
+  // We put our arg_data in a struct so that the size of the AssertHelper class can
   // be as small as possible.  This is important because gcc is incapable of
   // re-using stack space even for temporary variables, so every EXPECT_EQ
   // reserves stack space for another AssertHelper.
@@ -1905,7 +1905,7 @@ class TestWithParam : public Test, public WithParamInterface<T> {
 // FAIL and ASSERT_* are similar to ADD_FAILURE and EXPECT_*, except
 // that they will also abort the current function on failure.  People
 // usually want the fail-fast behavior of FAIL and ASSERT_*, but those
-// writing data-driven tests often find themselves using ADD_FAILURE
+// writing arg_data-driven tests often find themselves using ADD_FAILURE
 // and EXPECT_* more.
 
 // Generates a nonfatal failure with a generic message.
@@ -2408,7 +2408,7 @@ GTEST_API_ std::string TempDir();
 //
 // class MyTest : public MyFixture {
 //  public:
-//   explicit MyTest(int data) : data_(data) {}
+//   explicit MyTest(int arg_data) : data_(arg_data) {}
 //   void TestBody() override { ... }
 //
 //  private:

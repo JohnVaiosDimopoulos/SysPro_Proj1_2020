@@ -166,7 +166,7 @@ py_test(
     name = "gtest_help_test",
     size = "small",
     srcs = ["gtest_help_test.py"],
-    data = [":gtest_help_test_"],
+    arg_data = [":gtest_help_test_"],
     deps = [":gtest_test_utils"],
 )
 
@@ -185,7 +185,7 @@ py_test(
         "//:has_absl": [],
         "//conditions:default": ["--no_stacktrace_support"],
     }),
-    data = [
+    arg_data = [
         "googletest-output-test-golden-lin.txt",
         ":googletest-output-test_",
     ],
@@ -203,7 +203,7 @@ py_test(
     name = "googletest-color-test",
     size = "small",
     srcs = ["googletest-color-test.py"],
-    data = [":googletest-color-test_"],
+    arg_data = [":googletest-color-test_"],
     deps = [":gtest_test_utils"],
 )
 
@@ -218,7 +218,7 @@ py_test(
     name = "googletest-env-var-test",
     size = "medium",
     srcs = ["googletest-env-var-test.py"],
-    data = [":googletest-env-var-test_"],
+    arg_data = [":googletest-env-var-test_"],
     deps = [":gtest_test_utils"],
 )
 
@@ -233,7 +233,7 @@ py_test(
     name = "googletest-filter-unittest",
     size = "medium",
     srcs = ["googletest-filter-unittest.py"],
-    data = [":googletest-filter-unittest_"],
+    arg_data = [":googletest-filter-unittest_"],
     deps = [":gtest_test_utils"],
 )
 
@@ -248,7 +248,7 @@ py_test(
     name = "googletest-break-on-failure-unittest",
     size = "small",
     srcs = ["googletest-break-on-failure-unittest.py"],
-    data = [":googletest-break-on-failure-unittest_"],
+    arg_data = [":googletest-break-on-failure-unittest_"],
     deps = [":gtest_test_utils"],
 )
 
@@ -270,7 +270,7 @@ py_test(
     name = "googletest-throw-on-failure-test",
     size = "small",
     srcs = ["googletest-throw-on-failure-test.py"],
-    data = [":googletest-throw-on-failure-test_"],
+    arg_data = [":googletest-throw-on-failure-test_"],
     deps = [":gtest_test_utils"],
 )
 
@@ -299,7 +299,7 @@ py_test(
     name = "gtest_skip_check_output_test",
     size = "small",
     srcs = ["gtest_skip_check_output_test.py"],
-    data = [":gtest_skip_test"],
+    arg_data = [":gtest_skip_test"],
     deps = [":gtest_test_utils"],
 )
 
@@ -307,7 +307,7 @@ py_test(
     name = "gtest_skip_environment_check_output_test",
     size = "small",
     srcs = ["gtest_skip_environment_check_output_test.py"],
-    data = [
+    arg_data = [
         ":gtest_skip_in_environment_setup_test",
     ],
     deps = [":gtest_test_utils"],
@@ -317,7 +317,7 @@ py_test(
     name = "googletest-list-tests-unittest",
     size = "small",
     srcs = ["googletest-list-tests-unittest.py"],
-    data = [":googletest-list-tests-unittest_"],
+    arg_data = [":googletest-list-tests-unittest_"],
     deps = [":gtest_test_utils"],
 )
 
@@ -331,7 +331,7 @@ py_test(
     name = "googletest-shuffle-test",
     size = "small",
     srcs = ["googletest-shuffle-test.py"],
-    data = [":googletest-shuffle-test_"],
+    arg_data = [":googletest-shuffle-test_"],
     deps = [":gtest_test_utils"],
 )
 
@@ -354,7 +354,7 @@ py_test(
     name = "googletest-catch-exceptions-test",
     size = "small",
     srcs = ["googletest-catch-exceptions-test.py"],
-    data = [
+    arg_data = [
         ":googletest-catch-exceptions-ex-test_",
         ":googletest-catch-exceptions-no-ex-test_",
     ],
@@ -386,7 +386,7 @@ py_test(
         "//:has_absl": [],
         "//conditions:default": ["--no_stacktrace_support"],
     }),
-    data = [
+    arg_data = [
         # We invoke gtest_no_test_unittest to verify the XML output
         # when the test program contains no test definition.
         ":gtest_no_test_unittest",
@@ -416,7 +416,7 @@ py_test(
         "gtest_xml_outfiles_test.py",
         "gtest_xml_test_utils.py",
     ],
-    data = [
+    arg_data = [
         ":gtest_xml_outfile1_test_",
         ":gtest_xml_outfile2_test_",
     ],
@@ -434,7 +434,7 @@ py_test(
     name = "googletest-uninitialized-test",
     size = "medium",
     srcs = ["googletest-uninitialized-test.py"],
-    data = ["googletest-uninitialized-test_"],
+    arg_data = ["googletest-uninitialized-test_"],
     deps = [":gtest_test_utils"],
 )
 
@@ -450,7 +450,7 @@ py_test(
     name = "gtest_testbridge_test",
     size = "small",
     srcs = ["gtest_testbridge_test.py"],
-    data = [":gtest_testbridge_test_"],
+    arg_data = [":gtest_testbridge_test_"],
     deps = [":gtest_test_utils"],
 )
 
@@ -461,7 +461,7 @@ py_test(
         "googletest-json-outfiles-test.py",
         "gtest_json_test_utils.py",
     ],
-    data = [
+    arg_data = [
         ":gtest_xml_outfile1_test_",
         ":gtest_xml_outfile2_test_",
     ],
@@ -479,7 +479,7 @@ py_test(
         "//:has_absl": [],
         "//conditions:default": ["--no_stacktrace_support"],
     }),
-    data = [
+    arg_data = [
         # We invoke gtest_no_test_unittest to verify the JSON output
         # when the test program contains no test definition.
         ":gtest_no_test_unittest",
@@ -516,7 +516,7 @@ py_test(
     name = "googletest-param-test-invalid-name1-test",
     size = "small",
     srcs = ["googletest-param-test-invalid-name1-test.py"],
-    data = [":googletest-param-test-invalid-name1-test_"],
+    arg_data = [":googletest-param-test-invalid-name1-test_"],
     deps = [":gtest_test_utils"],
 )
 
@@ -524,6 +524,6 @@ py_test(
     name = "googletest-param-test-invalid-name2-test",
     size = "small",
     srcs = ["googletest-param-test-invalid-name2-test.py"],
-    data = [":googletest-param-test-invalid-name2-test_"],
+    arg_data = [":googletest-param-test-invalid-name2-test_"],
     deps = [":gtest_test_utils"],
 )

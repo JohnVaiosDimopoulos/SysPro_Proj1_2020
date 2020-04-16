@@ -4,7 +4,7 @@
 #include "../Hash_Table/Hash_Bucket_Node.h"
 #include "../Hash_Table/Hash_Table.h"
 #include "../Argument_Data/Argument_Data.h"
-#include "../Patient_List/Patients_List.h"
+#include "../Patients_List/Patients_List.h"
 class System_Data {
 
  private:
@@ -17,8 +17,9 @@ class System_Data {
 
 
   //==GETTERS==//
-  Hash_Table get_disease_table() const;
-  Hash_Table get_country_table() const;
+  Hash_Table* get_disease_table();
+  Hash_Table* get_country_table();
+  Patients_List* get_patient_records_ptr();
   Patients_List get_patient_records() const;
 };
 

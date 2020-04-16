@@ -1286,7 +1286,7 @@ number of situations, for example:
     command-line flags. You want to make sure your code performs correctly for
     various values of those flags.
 *   You want to test different implementations of an OO interface.
-*   You want to test your code over various inputs (a.k.a. data-driven testing).
+*   You want to test your code over various inputs (a.k.a. arg_data-driven testing).
     This feature is easy to abuse, so please exercise your good sense when doing
     it!
 
@@ -1847,7 +1847,7 @@ class MyFixture : public ::testing::Test {
 
 class MyTest : public MyFixture {
  public:
-  explicit MyTest(int data) : data_(data) {}
+  explicit MyTest(int arg_data) : data_(arg_data) {}
   void TestBody() override { ... }
 
  private:

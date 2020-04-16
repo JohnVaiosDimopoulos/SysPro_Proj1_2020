@@ -14,6 +14,8 @@ class Date {
   bool operator!=(const Date &rhs) const;
   bool operator<(const Date &rhs) const;
   bool operator>(const Date &rhs) const;
+  bool operator<=(const Date &rhs) const;
+  bool operator>=(const Date &rhs) const;
   int convert_to_timestamp(Date date) const;
   friend std::ostream &operator<<(std::ostream &os, const Date &date);
 

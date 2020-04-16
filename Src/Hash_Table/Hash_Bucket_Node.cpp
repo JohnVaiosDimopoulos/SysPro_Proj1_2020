@@ -4,11 +4,15 @@
 Hash_Bucket_Node::Hash_Bucket_Node(int bucket_size) {
   num_of_elements = 0;
   max_elements = bucket_size/ sizeof(Node_element);
+  if(max_elements==0){
+    std::cout<<"please give a bigger bucket size"<<std::endl;
+    exit(-1);
+  }
   elements = new Node_element[max_elements];
 }
 
 Hash_Bucket_Node::~Hash_Bucket_Node() {
-  delete elements;
+  delete[] elements;
 }
 
 //==API==//
@@ -36,6 +40,19 @@ void Hash_Bucket_Node::insert_date(list_node<Patient_Record> *node, std::string 
       elements[i].date_tree.insert(node);
     }
   }
+}
+
+//==GETTERS==//
+
+Node_element *Hash_Bucket_Node::get_elements() const {
+  return elements;
+}
+int Hash_Bucket_Node::get_num_of_elements() const {
+  return num_of_elements;
+}
+
+int Hash_Bucket_Node::getMaxElements() const {
+  return max_elements;
 }
 
 
